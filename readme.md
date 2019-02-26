@@ -1,11 +1,8 @@
-<p align="center"><img src="https://mymily.com/img/landing_home/mymily-concept-together.png" max-height="200px"></p>
-
 ## Why Family Tree
 In the modern age of nuclear families, family members are growing apart from each other and are barely aware of their roots and family heritage.
 mymily helps you bridge this gap and helps you connect with all your family members - your parents, siblings, grandparents, cousins, uncles and aunts.
 
-
-
+<p align="center"><img src="https://mymily.com/img/landing_home/mymily-concept-together.png" max-height="200px"></p>
 
 ## About And IT
 We are a digital agency, based in Bangladesh. 
