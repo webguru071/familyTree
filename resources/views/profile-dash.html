@@ -1,0 +1,654 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <meta name="csrf_token" content="UEqvVjK7HbzcxgNRShdcZZaW4iUmBNeJ6JtdGaNY" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0095eb">
+    <title>Profile | Mynasab</title>
+
+    <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link media="all" type="text/css" rel="stylesheet" href="https://mymily.com/build/vendor-U35DR7NsSr.css">
+    <link media="all" type="text/css" rel="stylesheet" href="https://mymily.com/build/app-U35DR7NsSr.css">
+    <link rel="shortcut icon" href="https://mymily.com/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini body_scroll">
+    <header class="main-header">
+        <div class="container-fluid" ng-init="Home.listenToOwnChannel(1107, 0, 0)">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-xs-12 custom-col9 pd-right-no">
+                    <h1><a class="logo" href="https://mymily.com/home">mymily</a></h1>
+                    <nav class="left-nav hidden-xs hidden-sm">
+                        <ul class="pd-left-ul20">
+                            <li>
+                                <a id="step-home" href="https://mymily.com/home" class="active">
+                                    <i class="fa fa-home" aria-hidden="true"></i><br>
+                                    <span>
+                                        Home
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="step-profile" href="https://mymily.com/profile/personal" class="icon-wrap ">
+                                    <i class="fa fa-user" aria-hidden="true"></i><br>
+                                    <span>
+                                        Profile
+                                    </span>
+                                    <a href="https://mymily.com/profile-complete" class="" ng-if="Home.profile_update==false" uib-tooltip="Please, complete your profile" tooltip-placement="bottom" tooltip-class="customClass">
+                                        <i class="fa fa-asterisk asterick" aria-hidden="true"></i>
+                                    </a>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="step-groups" href="https://mymily.com/groups" class="">
+                                    <i class="fa fa-users" aria-hidden="true"></i><br>
+                                    <span>
+                                        Groups
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="step-family" href="https://mymily.com/family" class="">
+                                    <i class="fa fa-code-fork" aria-hidden="true"></i><br>
+                                    <span>
+                                        My Family
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="step-journals" href="https://mymily.com/journals" class="">
+                                    <i class="fa fa-book" aria-hidden="true"></i><br>
+                                    <span>
+                                        Journals
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="step-albums" href="https://mymily.com/albums/family-albums" class="">
+                                    <i class="fa fa-picture-o" aria-hidden="true"></i><br>
+                                    <span>
+                                        Albums
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="step-chats" href="https://mymily.com/chats" class=" chat-item pos-rel">
+                                    <i class="fa fa-comments-o" aria-hidden="true"></i><br>
+                                    <span>
+                                        Chats
+                                    </span>
+                                    <span class="unread-chatcount" ng-bind="Home.profileService.unread_messages" ng-if="Home.profileService.unread_messages>0">
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="dropdown more-menu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" href="">
+                                    <i class="caret icon-more" aria-hidden="true"></i><br>
+                                    <span>
+                                        More
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="https://mymily.com/family" class="">
+                                            <i class="fa fa-code-fork" aria-hidden="true"></i>
+                                            <span>
+                                                My Family
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mymily.com/journals" class="">
+                                            <i class="fa fa-book" aria-hidden="true"></i>
+                                            <span>
+                                                Journals
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mymily.com/albums/family-albums" class="">
+                                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                            <span>
+                                                Albums
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mymily.com/chats" class=" chat-item pos-rel">
+                                            <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                            <span>
+                                                Chats
+                                            </span>
+                                            <span class="unread-chatcount" ng-bind="Home.profileService.unread_messages" ng-if="Home.profileService.unread_messages>0">
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-3 col-xs-12 custom-col3 hidden-xs hidden-sm" ng-app="app">
+                    <nav class="right-nav" ng-controller="NotificationController as Notification">
+                        <ul>
+                            <li class="" ng-controller="AddShoutoutController as Post">
+                                <a class="shoutout-theme-btn" href="" ng-click="Post.openShoutout()">
+                                    <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                                    <span>
+                                        Shoutout
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <a href="" ng-init="Notification.loadLimitedNotifications()" class="notification-block" data-toggle="dropdown">
+                                        <i class="icon fa fa-bell" aria-hidden="true"></i>
+                                        <span class="notification_counter" ng-if="Home.profileService.unseen_notifications>0" ng-bind="Home.profileService.unseen_notifications">
+                                        </span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                        <li ng-click="Notification.redirect(notificationLimit)" class="notification-list-header" ng-repeat="notificationLimit in Notification.notificationService.limitlist"
+                                          ng-class="{'seen_notification': !notificationLimit.is_seen}">
+                                            <img class="user-image" ng-src="[[notificationLimit.notification_image]]" err-src="https://mymily.com/img/mymily-profile.png" alt="User">
+                                            <h6>
+                                                <a ng-bind="notificationLimit.title">
+                                                </a>
+                                            </h6>
+                                            <p>
+                                                <span ng-bind="notificationLimit.created_at">
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li class="view_all"><a href="https://mymily.com/notification">View All</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img
+                                      src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-male.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20190304T044122Z&X-Amz-SignedHeaders=host&X-Amz-Expires=12000&X-Amz-Signature=94d257ce6981f78210167441e922553953fe0b996ce8845059fcc436400f5129"
+                                      alt="User" class="user-dropdown-img">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right cm-profile-dropdown">
+                                    <div>
+                                        <li><a href="https://mymily.com/profile/andit-web/33518553-0a07-4e41-a999-c5fe0b978bcd">Profile</a></li>
+                                        <li><a href="javascript:void(0)" ng-click="signout('https://mymily.com')">Signout</a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://mymily.com/family-admin/members" class="admin-switch">
+                                    <i class="icon ion-arrow-return-right"></i>
+                                    <br>
+                                    <span>Admin</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-xs-3 hidden-lg hidden-md header-section">
+                    <div class="navbar-header inner-navbar-header">
+                        <button data-toggle="collapse-side" data-target=".side-collapse" type="button" class="navbar-toggle">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="side-collapse" id="side-collapse">
+                        <nav class="header-navigation navbar-collapse no-padding">
+                            <ul class="list-inline list-unstyled no-margin">
+                                <li class="nav-item">
+                                    <ul class="mob-menu-header clearfix">
+                                        <div class="first-header">
+                                            <ul class="clearfix">
+                                                <li>
+                                                    <a href class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <img
+                                                          src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-male.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20190304T044122Z&X-Amz-SignedHeaders=host&X-Amz-Expires=12000&X-Amz-Signature=94d257ce6981f78210167441e922553953fe0b996ce8845059fcc436400f5129"
+                                                          alt="User" class="user-dropdown-img">
+                                                    </a>
+                                                </li>
+                                                <li class="pull-right">
+                                                    <a id="close_menu" class="btn btn-xs">
+                                                        &#x2717;
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <li class="wd-100" ng-controller="AddShoutoutController as Post">
+                                            <a class="shoutout-theme-btn" href="" ng-click="Post.openShoutout()">
+                                                <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                                                <span>
+                                                    Shoutout
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="pull-right notify">
+                                            <a href="https://mymily.com/notification" class="mobile_notification">
+                                                <i class="icon fa fa-bell" aria-hidden="true"></i><span>
+                                                    Notification
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://mymily.com/family-admin/members">
+                                        <i class="icon ion-arrow-return-right"></i>
+                                        <span>Admin</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mymily.com/home" class="active">
+                                        <i class="fa fa-home" aria-hidden="true"></i>
+                                        <span>
+                                            Home
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mymily.com/profile/personal" class="icon-wrap ">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>
+                                            Profile
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mymily.com/groups" class="">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                        <span>
+                                            Groups
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mymily.com/reminders" class="">
+                                        <i class="fa fa-bell" aria-hidden="true"></i>
+                                        <span>
+                                            Reminder
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mymily.com/family" class="">
+                                        <i class="fa fa-code-fork" aria-hidden="true"></i>
+                                        <span>
+                                            My Family
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mymily.com/journals" class="">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                        <span>
+                                            Journals
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mymily.com/albums/family-albums" class="">
+                                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                        <span>
+                                            Albums
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mymily.com/chats" class=" chat-item pos-rel">
+                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                        <span>
+                                            Chats
+                                        </span>
+                                        <span class="unread-chatcount" ng-bind="Home.profileService.unread_messages" ng-if="Home.profileService.unread_messages>0">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mymily.com/profile/andit-web/33518553-0a07-4e41-a999-c5fe0b978bcd">
+                                        <i class="fa fa-male" aria-hidden="true"></i>
+                                        <span>
+                                            Public profile
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="javascript:void(0)" ng-click="signout('https://mymily.com')">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        <span>
+                                            Signout
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="single-step tour-step" id="step-home-content">
+        <div class="content">
+            <i class="fa fa-home"></i>
+            <h3>Home</h3>
+            <p>
+                Virtual home to see all your family members updating their whereabouts
+            </p>
+        </div>
+        <div class="clearfix">
+            <a href="" data-powertour-action="next" class="pull-right"><i class="fa ion-ios-arrow-thin-right"></i></a>
+        </div>
+    </div>
+    <div class="single-step tour-step" id="step-profile-content">
+        <div class="content">
+            <i class="fa fa-user"></i>
+            <h3>Profile</h3>
+            <p>
+                Keep your details updated. You never know who is looking for you.
+            </p>
+        </div>
+        <div class="clearfix">
+            <a href="" data-powertour-action="prev"><i class="fa ion-ios-arrow-thin-left"></i></a>
+            <a href="" data-powertour-action="next" class="pull-right"><i class="fa ion-ios-arrow-thin-right"></i></a>
+        </div>
+    </div>
+    <div class="single-step tour-step" id="step-family-content">
+        <div class="content">
+            <i class="fa fa-code-fork"></i>
+            <h3>Family Tree</h3>
+            <p>
+                One place where you see everyone. Anscestors to new borns, all at once !
+            </p>
+        </div>
+        <div class="clearfix">
+            <a href="" data-powertour-action="prev"><i class="fa ion-ios-arrow-thin-left"></i></a>
+            <a href="" data-powertour-action="next" class="pull-right"><i class="fa ion-ios-arrow-thin-right"></i></a>
+        </div>
+    </div>
+    <div class="main-content-wrapper">
+        <div class="container">
+            <div class="main-section-container">
+                <div class="row">
+                    <div class="col-md-3 col-xs-12 hidden-xs hidden-sm">
+                        <aside class="eq-col mm">
+                            <div class="card profile-card">
+                                <div class="pro-bg-image" style="background: url(https://mymily.com/img/mymilyuserprofilebanner.jpg) no-repeat; background-size: cover; background-position: center;">
+                                    <div class="img-overlay"></div>
+                                    <a href="https://mymily.com/profile/afdf/23ec1d26-27ae-4665-b6c6-e8926dca682d" class="view-action">
+                                        <i class="ion-ios-eye" aria-hidden="true"></i> Profile
+                                    </a>
+                                    <a href="https://mymily.com/profile/personal" class="edit-action">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                                    </a>
+                                </div>
+                                <div class="pro-summary">
+                                    <img
+                                      src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-male.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055148Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=12000&amp;X-Amz-Signature=631683117593c68957daa2e7d058c6bf62eca8a2608b079832100b106f75211c"
+                                      alt="User" class="user-pro-image">
+                                    <div class="summary-content">
+                                        <p class="usr-name text-ellipsis">
+                                            Afdf
+                                        </p>
+                                        <a class="stats-block" href="https://mymily.com/family">
+                                            <i class="fa ion-ios-people"></i>
+                                            <p class="stats-label">Family</p>
+                                            <p>1</p>
+                                        </a>
+                                        <a class="stats-block" href="https://mymily.com/connections">
+                                            <i class="fa fa-link" aria-hidden="true"></i>
+                                            <p class="stats-label">Connections</p>
+                                            <p>0</p>
+                                        </a>
+                                        <a class="stats-block" href="https://mymily.com/milys">
+                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                            <p class="stats-label">milys</p>
+                                            <p>0</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-action card-grad-blue">
+                                <div class="item">
+                                    Have questions in your mind? Want to learn more about how it all works?
+                                    <p class="text-center">
+                                        <a target="_blank" href="https://mymily.com/faqs" class="sm-ouline-btn sm-ouline-theme-btn md-btn-theme">
+                                            See all FAQs
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="item">
+                                    <div class="header">
+                                        <span class="left">About</span>
+                                        <a href="https://mymily.com/profile/personal" class="pull-right right">Edit</a>
+                                    </div>
+                                    <p>
+                                        Update your about information
+                                    </p>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-md-6 col-xs-12 ng-scope" ng-controller="ExperimentalController as Exp">
+                        <div class="fade-out ng-scope show_element ng-hide" ng-controller="ShoutOutController as Post" ng-init="Post.initShoutout();" ng-hide="Post.wallListService.shoutout_list.length === 0" element-init="" aria-hidden="true">
+                            <div class="feed-notify-container ng-binding">
+
+                                <ul id="shoutout_cards" class="stack stack--mawar">
+                                    <!-- ngRepeat: post in Post.wallListService.shoutout_list -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mod main-content">
+                            <!-- ngInclude: -->
+                            <ng-include class="slide ng-scope" id="powertour-demo-box-1" src="Post.addPostService.config.activeTemplate" ng-controller="AddPostController as Post">
+                                <div class="cm-card post-pl-card ng-scope activated" ng-click="Post.switchTemplate('post-thanks')" ng-class="{'activated': !Post.wallListService.list.length &amp;&amp; Post.wallListService.hasData}" role="button"
+                                  tabindex="0" style="">
+                                    <div class="msg-box">
+                                        <input type="text" name="searcg-box" class="form-control" placeholder="Lets write something...">
+
+                                        <button class="btn-reset upload"><i class="fa fa-paperclip" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-include>
+
+                            <div class="mod_tab_nav home_mod_tab_nav">
+                                <a href="https://mymily.com/home" class="mod_tab mod_tab-home is-active">
+                                    Family Feed
+                                </a>
+                                <span class="icon-help ion-help-circled mod_tab-home" uib-tooltip="Know what all your family members are upto" tooltip-placement="right" tooltip-class="customClass"></span>
+                                <a href="https://mymily.com/my-feed" class="mod_tab mod_tab-home">
+                                    My feed
+                                </a>
+                                <span href="" class="icon-help ion-help-circled mod_tab-home" uib-tooltip="Know what your close connections are upto" tooltip-placement="right" tooltip-class="customClass"></span>
+                            </div>
+                            <div class="feed-container-box">
+                                <div class="list-section ng-scope" ng-controller="FamilyWallListController as Wall">
+                                    <div infinite-scroll="Wall.loadPosts()" infinite-scroll-disabled="Wall.wallListService.busy" infinite-scroll-distance="1" class="ng-isolate-scope">
+                                        <!-- ngRepeat: post in Wall.wallListService.list -->
+                                    </div>
+                                    <!-- ngIf: !Wall.wallListService.list.length && Wall.wallListService.hasData -->
+                                    <div ng-if="!Wall.wallListService.list.length &amp;&amp; Wall.wallListService.hasData" class="pf-card empty-card-design ng-scope show_element" element-init="" style="">
+                                        <img class="img-responsive" src="https://mymily.com/img/icons/empty-state.png" alt="Add Media">
+                                        <h2>
+                                            You have not added any posts yet.
+                                        </h2>
+                                        <p>
+                                            mymily welcomes you to a safe secure digital world for you and your family.Start sharing your thoughts, memories and moments to entire family here
+                                        </p>
+                                    </div><!-- end ngIf: !Wall.wallListService.list.length && Wall.wallListService.hasData -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-12 hidden-xs hidden-sm">
+                        <aside class="eq-col mm">
+                            <div class="card card-action card-tour">
+                                <div class="item reminder-lt-notification">
+                                    <div class="header">
+                                        <span class="left">Reminders</span>
+                                        <a href="https://mymily.com/reminders" class="pull-right">View all</a>
+                                    </div>
+                                    <p class="text-center">
+                                        There are no reminders for today
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item pending-invite-lt ng-scope" ng-controller="NodeController as Node" ng-init="getAPIData('member/node/get/uninvited-members', 'data')"
+                              ng-show="data.uninvited_members.length>0 || data.unjoined_members.length>0 " aria-hidden="false">
+                                <div class="header">
+                                    <span class="left">Pending invites</span>
+                                    <a href="https://mymily.com/family-invitation" class="pull-right">View all</a>
+                                    <!-- ngRepeat: unjoined_member in data.unjoined_members -->
+                                    <!-- ngRepeat: uninvited_member in data.uninvited_members -->
+                                    <p ng-repeat="uninvited_member in data.uninvited_members" class="ng-scope" style="">
+                                        <img
+                                          ng-src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-female-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=2b9d74eb2f5bbc5bb263d2143f1a584e6fad47a91de8e20b0c15e72e382ee497"
+                                          alt="" class="img-responsive"
+                                          src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-female-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=2b9d74eb2f5bbc5bb263d2143f1a584e6fad47a91de8e20b0c15e72e382ee497">
+                                        <a class="ng-binding">vzxcvzxcv</a>
+                                        <br>
+                                        <button ng-click="Node.inviteNodeFromDashboard(uninvited_member)" type="button" class="sm-ouline-btn sm-ouline-theme-btn md-btn-theme">Invite</button>
+                                    </p><!-- end ngRepeat: uninvited_member in data.uninvited_members -->
+                                    <p ng-repeat="uninvited_member in data.uninvited_members" class="ng-scope">
+                                        <img
+                                          ng-src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-male-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=9c62f1b48a9b166b41510e924dd4b6a1610417e778b119741057a015a2da86f7"
+                                          alt="" class="img-responsive"
+                                          src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-male-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=9c62f1b48a9b166b41510e924dd4b6a1610417e778b119741057a015a2da86f7">
+                                        <a class="ng-binding">vzxcvzx</a>
+                                        <br>
+                                        <button ng-click="Node.inviteNodeFromDashboard(uninvited_member)" type="button" class="sm-ouline-btn sm-ouline-theme-btn md-btn-theme">Invite</button>
+                                    </p><!-- end ngRepeat: uninvited_member in data.uninvited_members -->
+                                    <p ng-repeat="uninvited_member in data.uninvited_members" class="ng-scope">
+                                        <img
+                                          ng-src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-female-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=2b9d74eb2f5bbc5bb263d2143f1a584e6fad47a91de8e20b0c15e72e382ee497"
+                                          alt="" class="img-responsive"
+                                          src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-female-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=2b9d74eb2f5bbc5bb263d2143f1a584e6fad47a91de8e20b0c15e72e382ee497">
+                                        <a class="ng-binding">vzxcvzxc</a>
+                                        <br>
+                                        <button ng-click="Node.inviteNodeFromDashboard(uninvited_member)" type="button" class="sm-ouline-btn sm-ouline-theme-btn md-btn-theme">Invite</button>
+                                    </p><!-- end ngRepeat: uninvited_member in data.uninvited_members -->
+                                    <p ng-repeat="uninvited_member in data.uninvited_members" class="ng-scope">
+                                        <img
+                                          ng-src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-male-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=9c62f1b48a9b166b41510e924dd4b6a1610417e778b119741057a015a2da86f7"
+                                          alt="" class="img-responsive"
+                                          src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-male-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=9c62f1b48a9b166b41510e924dd4b6a1610417e778b119741057a015a2da86f7">
+                                        <a class="ng-binding">bdzfvzfv</a>
+                                        <br>
+                                        <button ng-click="Node.inviteNodeFromDashboard(uninvited_member)" type="button" class="sm-ouline-btn sm-ouline-theme-btn md-btn-theme">Invite</button>
+                                    </p><!-- end ngRepeat: uninvited_member in data.uninvited_members -->
+                                    <p ng-repeat="uninvited_member in data.uninvited_members" class="ng-scope">
+                                        <img
+                                          ng-src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-female-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=2b9d74eb2f5bbc5bb263d2143f1a584e6fad47a91de8e20b0c15e72e382ee497"
+                                          alt="" class="img-responsive"
+                                          src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-female-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=2b9d74eb2f5bbc5bb263d2143f1a584e6fad47a91de8e20b0c15e72e382ee497">
+                                        <a class="ng-binding">zxcvzxcv</a>
+                                        <br>
+                                        <button ng-click="Node.inviteNodeFromDashboard(uninvited_member)" type="button" class="sm-ouline-btn sm-ouline-theme-btn md-btn-theme">Invite</button>
+                                    </p><!-- end ngRepeat: uninvited_member in data.uninvited_members -->
+                                    <p ng-repeat="uninvited_member in data.uninvited_members" class="ng-scope">
+                                        <img
+                                          ng-src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-female-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=2b9d74eb2f5bbc5bb263d2143f1a584e6fad47a91de8e20b0c15e72e382ee497"
+                                          alt="" class="img-responsive"
+                                          src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-female-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=2b9d74eb2f5bbc5bb263d2143f1a584e6fad47a91de8e20b0c15e72e382ee497">
+                                        <a class="ng-binding">fsdfsdf</a>
+                                        <br>
+                                        <button ng-click="Node.inviteNodeFromDashboard(uninvited_member)" type="button" class="sm-ouline-btn sm-ouline-theme-btn md-btn-theme">Invite</button>
+                                    </p><!-- end ngRepeat: uninvited_member in data.uninvited_members -->
+                                    <p ng-repeat="uninvited_member in data.uninvited_members" class="ng-scope">
+                                        <img
+                                          ng-src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-male-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=9c62f1b48a9b166b41510e924dd4b6a1610417e778b119741057a015a2da86f7"
+                                          alt="" class="img-responsive"
+                                          src="https://static-mymily.s3.ap-south-1.amazonaws.com/userphotos/mymily-default-male-200-200.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIV6PDO76KJKGLFAA%2F20190304%2Fap-south-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190304T055151Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=21600&amp;X-Amz-Signature=9c62f1b48a9b166b41510e924dd4b6a1610417e778b119741057a015a2da86f7">
+                                        <a class="ng-binding">sdfasf</a>
+                                        <br>
+                                        <button ng-click="Node.inviteNodeFromDashboard(uninvited_member)" type="button" class="sm-ouline-btn sm-ouline-theme-btn md-btn-theme">Invite</button>
+                                    </p><!-- end ngRepeat: uninvited_member in data.uninvited_members -->
+                                </div>
+                            </div>
+                            <div class="card card-action card-tour hidden-xs">
+                                <div class="item">
+                                    Quickly, take a tour to understand what you can do in mymily with your family.
+                                    <img class="img-responsive" src="https://mymily.com/img/icons/tour-bus.svg">
+                                    <p class="text-center">
+                                        <a href="" id="header-tour-start" class="sm-ouline-btn sm-ouline-theme-btn md-btn-theme powertour-disable-cancel" data-powertour-startwith="1" data-powertour-trigger="1">
+                                            Take a Tour
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card card-action card-tour app-card hidden-xs">
+                                <div class="item">
+                                    <p>
+                                        Also available in app stores. Download now and stay closer to your family
+                                    </p>
+                                    <div class="text-center">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-12 pd-rt0">
+                                                <a href="https://play.google.com/store/apps/details?id=com.mymily.app" class="" target="_blank">
+                                                    <img src="https://mymily.com/img/play_store.png" class="" alt="name">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-12 pd-lt0">
+                                                <a href="https://itunes.apple.com/in/app/mymily/id1229023672?mt=8" class="" target="_blank">
+                                                    <img src="https://mymily.com/img/apple_store_img.svg" class="" alt="name">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="app-footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                    <nav class="site-footer">
+                        <ul class="">
+                            <li>
+                                <a href="https://mymily.com/about" target="_blank">About</a>
+                            </li>
+                            <li>
+                                <a href="https://mymily.com/terms" target="_blank">Terms</a>
+                            </li>
+                            <li>
+                                <a href="https://mymily.com/privacy" target="_blank">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="https://mymily.com/faqs" target="_blank">Faqs</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="footer-span clearfix">
+                        <span class="pull-right">&copy;2019 mymily. All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script src="https://mymily.com/build/vendor-U35DR7NsSr.js"></script>
+    <script src="https://mymily.com/build/redlof-U35DR7NsSr.js"></script>
+    <script src="https://mymily.com/build/role-member-U35DR7NsSr.js"></script>
+</body>
+
+</html>

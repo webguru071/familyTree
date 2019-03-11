@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -49,9 +52,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'name'        => ['required', 'string', 'max:255'],
+            'email'       => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'    => ['required', 'string', 'min:5'],
+            'username'    => ['required','unique:users,username','max:255'],
+            'phone'       => ['required','numeric'],
+            'gender'      => ['required'],
+            'checked'     => ['required'],
         ]);
     }
 
@@ -63,10 +70,42 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if ($data['gender'] == 'male') {
+          $img_address = 'img/familyTree-default-male.png';
+        } else {
+          $img_address = 'img/familyTree-default-female.png';
+        }
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name'        => $data['name'],
+            'email'       => $data['email'],
+            'password'    => Hash::make($data['password']),
+            'username'    => $data['username'],
+            'phone'       => $data['phone'],
+            'gender'      => $data['gender'],
+            'user_type'   => 'guest',
+            'img_address' => $img_address,
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.signup')->with(['title'=>'Sign Up | familyTree']);
+    }
+
+    public function register(Request $request)
+    {
+        $validation = ['message'=>'', 'success'=>false];
+        $validation['message'] = $this->validator($request->all());
+        if ($validation['message']->fails())  {
+            $validation['message'] = $validation['message']->errors()->toArray();
+        } else {
+            $user = $this->create($request->all());
+            Auth::login($user);
+            $validation['success'] = true;
+            $validation['message'] = route('home');
+        }
+
+        return response()->json($validation);
     }
 }

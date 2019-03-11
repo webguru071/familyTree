@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'gender', 'phone', 'username', 'img_address'
     ];
 
     /**
@@ -27,4 +27,28 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function FamilyMember()
+    {
+        return $this->hasMany(FamilyMember::class);
+    }
+
+    public function createPost($post_body)
+    {
+        return $this->post()->create(compact('post_body'));
+    }
 }
